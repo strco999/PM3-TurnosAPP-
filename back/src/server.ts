@@ -1,14 +1,12 @@
 import express from "express";
-import usersRouter from "./routes/users.routes";
-import appointmentsRouter from "./routes/appointments.routes";
+import morgan from "morgan";
+import cors from "cors";
 
-export const app = express();
+const server = express();
 
-app.use(express.json());
+server.use(morgan("dev"));
+server.use(cors());
+server.use(express.json());
 
-// Rutas base
-app.use("/users", usersRouter);
-app.use("/appointments", appointmentsRouter);
+export default server;
 
-// Healthcheck opcional
-app.get("/", (_req, res) => res.send("OK - API base"));

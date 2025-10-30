@@ -1,6 +1,5 @@
-import { app } from "./server";
-import { env } from "./config/envs";
+import {PORT} from "./config/envs";
+import server from "./server";
 
-app.listen(env.PORT, () => {
-  console.log(`✅ Server listening on http://localhost:${env.PORT}`);
-});
+server.listen(PORT, () => console.info("server up and running on http:localhost:${PORT}"));
+

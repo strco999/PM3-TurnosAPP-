@@ -7,7 +7,7 @@ export const getAllAppointments = (_req:Request, res: Response) => {
   res.send("Obtener el listado de todos los turnos de todos los usuarios.");
 };
 // GET /appointments => Obtener el detalle de un turno específico.
-export const getAllAppointmentById = (_req:Request, res: Response) => {
+export const getAppointmentById = (_req:Request, res: Response) => {
   res.send("Obtener el detalle de un turno específico.");
 };
 // POST /appointments/schedule => Agendar un nuevo turno.

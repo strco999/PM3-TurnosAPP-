@@ -9,6 +9,6 @@ server.use(morgan("dev"));
 server.use(cors());
 server.use(express.json());
 
-server.use(Router);
+server.use(router);
 
 export default server;

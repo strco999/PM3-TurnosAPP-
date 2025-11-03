@@ -1,15 +1,15 @@
 import { ICreateUserDTO } from "../dtos/iCreateUserDTO";
 import { IUser } from "../interfaces/IUser";
-import { createCredentials } from "./CredentialsService";
+import { createCredentialsService } from "./CredentialsService";
 
 const userDB: IUser[]=[];
 let userId: number = 1;
 
-export const getAllUsers = async (): Promise<IUser[]> => {
+export const getAllUsersService = async (): Promise<IUser[]> => {
     return userDB;
 };
 
-export const getUserById = async (id:number): Promise <IUser> => {
+export const getUserByIdService = async (id:number): Promise <IUser> => {
     const foundUser: undefined | IUser = userDB.find((user)=>user.id == id);
     if (!foundUser){
         throw new Error("Usuario no encontrado");
@@ -26,8 +26,8 @@ export const getUserById = async (id:number): Promise <IUser> => {
 
 
 
-export const createUser = async (createUserDTO: ICreateUserDTO): Promise<IUser> =>{
-   const newCredentialsId: number = await createCredentials(
+export const createUserService = async (createUserDTO: ICreateUserDTO): Promise<IUser> =>{
+   const newCredentialsId: number = await createCredentialsService(
     createUserDTO.username, 
     createUserDTO.password
 );

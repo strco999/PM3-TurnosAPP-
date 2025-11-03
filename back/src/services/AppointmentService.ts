@@ -1,17 +1,17 @@
-import { getUserById } from "../services/UserService";
+import { getUserByIdService } from "../services/UserService";
 import { iCreateAppointmentDTO } from "../dtos/iCreateAppointmentDTO";
 import { AppointmentStatus, IAppointment } from "../interfaces/IAppointment";
 
-const appointmentDB: IAppointment[]=[];
+const appointmentDB: IAppointment[] = [];
 let appointmentId: number = 1;
 
 
-export const getAllAppointments = async (): Promise<IAppointment[]> =>{
+export const getAllAppointmentsService = async (): Promise<IAppointment[]> =>{
     return appointmentDB;
 };
 
 
-export const getAppointmentById = async (id: number): Promise<IAppointment>=> {
+export const getAppointmentByIdService = async (id: number): Promise<IAppointment>=> {
     const foundAppointment: undefined | IAppointment = appointmentDB.find(
         (appointment)=> appointment.id == id
     );
@@ -24,8 +24,8 @@ export const getAppointmentById = async (id: number): Promise<IAppointment>=> {
 
 
 
-export const createAppointment =  async (createAppointmentDTO: iCreateAppointmentDTO):Promise<IAppointment> =>{
-    const foundUser = await getUserById(createAppointmentDTO.userId);
+export const createAppointmentService =  async (createAppointmentDTO: iCreateAppointmentDTO):Promise<IAppointment> =>{
+    const foundUser = await getUserByIdService(createAppointmentDTO.userId);
    
     const newAppoinment: IAppointment = {
     id: appointmentId++,
@@ -40,8 +40,8 @@ export const createAppointment =  async (createAppointmentDTO: iCreateAppointmen
 
 
 
-export const cancelAppointment = async (id: number): Promise<number>=> {
-    const foundAppointment = await getAppointmentById(id);
+export const cancelAppointmentService = async (id: number): Promise<number>=> {
+    const foundAppointment = await getAppointmentByIdService(id);
 
     if (foundAppointment.status == AppointmentStatus.CANCELLED){
         throw new Error ("el turno ya esta cancelado");

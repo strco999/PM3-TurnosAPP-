@@ -4,7 +4,7 @@ const credentialsDB: ICredentials[]= [];
 let credentialsId: number = 1;
 
 
-export const createCredentials = async (username: string, password: string): Promise<number> => {
+export const createCredentialsService = async (username: string, password: string): Promise<number> => {
     const newCredentials: ICredentials = {
         id: credentialsId++,
         username,
@@ -21,7 +21,7 @@ export const createCredentials = async (username: string, password: string): Pro
 
 
 
-export const validateCredentials = async (username: string, password: string ): Promise<number> => {
+export const validateCredentialsService = async (username: string, password: string ): Promise<number> => {
     const foundCredentials: undefined | ICredentials = credentialsDB.find(
         (credentials)=>credentials.username == username
     );

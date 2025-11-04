@@ -17,3 +17,8 @@ entities: [Appointment, User, Credential],
 subscribers: [],
 migrations: [],
 });
+
+export const userRepository = AppDataSource.getRepository(User);
+export const credentialRepository = AppDataSource.getRepository(Credential);
+export const appointmentRepository = AppDataSource.getRepository(Appointment);
+

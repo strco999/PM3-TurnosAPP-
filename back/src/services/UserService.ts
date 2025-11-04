@@ -1,20 +1,31 @@
+import { AppDataSource, userRepository } from "../config/data-source";
 import { ICreateUserDTO } from "../dtos/iCreateUserDTO";
-import { IUser } from "../interfaces/IUser";
-import { createCredentialsService } from "./CredentialsService";
+import { Credential } from "../entities/Credential";
+import { User } from "../entities/User";
+import { createCredentialsService, validateCredentialsService } from "./CredentialsService";
 
-const userDB: IUser[]=[];
-let userId: number = 1;
 
-export const getAllUsersService = async (): Promise<IUser[]> => {
-    return userDB;
+
+export const getAllUsersService = async (): Promise<User[]> => {
+  const users = await userRepository.find();  
+	return users;
 };
 
-export const getUserByIdService = async (id:number): Promise <IUser> => {
-    const foundUser: undefined | IUser = userDB.find((user)=>user.id == id);
+
+
+export const getUserByIdService = async (id:number): Promise <User> => {
+  const foundUser: User | null = await userRepository.findOne({
+		where:{
+			id,
+		},
+   relations: {
+    appointments: true,
+   },
+	});
+
     if (!foundUser){
         throw new Error("Usuario no encontrado");
     }
-
     return foundUser;
 };
 
@@ -26,21 +37,45 @@ export const getUserByIdService = async (id:number): Promise <IUser> => {
 
 
 
-export const createUserService = async (createUserDTO: ICreateUserDTO): Promise<IUser> =>{
-   const newCredentialsId: number = await createCredentialsService(
+export const createUserService = async (createUserDTO: ICreateUserDTO): Promise<User> =>{
+   const resultUser: User = await AppDataSource.transaction(async(entityManager)=>{
+	 const newCredentialsId: Credential = await createCredentialsService(
+		entityManager,
     createUserDTO.username, 
     createUserDTO.password
 );
 
-const newUser: IUser = {
-    id: userId++,
-    name: createUserDTO.name,
-    email: createUserDTO.email,
-    birthdate: createUserDTO.birthdate,
-    nDni: createUserDTO.nDni,
-    credentialsId: newCredentialsId,
-   };
+    const newUser: User = entityManager.create(User, {
+			 name: createUserDTO.name,
+       email: createUserDTO.email,
+       birthdate: createUserDTO.birthdate,
+       nDni: createUserDTO.nDni,
+       credentialsId: newCredentialsId,
+    });
 
-   userDB.push(newUser);
-   return newUser;
+		const results = await entityManager.save(User, newUser);
+		return results;
+	 }); 
+	 
+    return resultUser;
+};
+
+export const loginUserService = async (username: string, password: string): Promise<User>=> {
+   const credentialId = await validateCredentialsService(username, password);
+
+	  const foundUser: User | null = await userRepository.findOne({
+		where:{
+			credentials:{
+				id: credentialId,
+			},
+		},
+
+});
+
+if (!foundUser){
+        throw new Error("Usuario no encontrado");
+}
+
+return foundUser;
+
 };

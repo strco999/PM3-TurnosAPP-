@@ -110,3 +110,10 @@ export const cancelAppointment = async (req: Request, res: Response) => {
     res.status(status).json({ message: error.message });
   }
 };
+
+
+
+
+
+
+

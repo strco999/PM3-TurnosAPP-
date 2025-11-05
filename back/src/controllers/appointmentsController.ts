@@ -57,9 +57,6 @@ export const createAppointment = async (req: Request, res: Response) => {
 
 
 
-
-
-
 // PUT /appointments/cancel => Cambiar el estatus de un turno a “cancelled”.
 export const cancelAppointment = async (req: Request, res: Response) => {
   try {

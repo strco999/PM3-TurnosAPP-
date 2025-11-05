@@ -1,0 +1,32 @@
+.header{
+    display: flex;
+    justify-content: space-between; /* espacio entre elemntos  */
+    background: rgb(156, 124, 61);
+    padding: 0 30px;
+    height: 70px;
+    align-items: center;
+}
+
+.header > h1{
+    color:white;
+}
+
+.navList{
+    display: flex; /* mandar al centro la lista */
+    list-style: none; /* quitar puntos  */
+   gap: 20px; /* espacio entre elemtnos de la lista */
+}
+
+.navList > li >a {
+    text-decoration: none; /* quitar subrayado elementos */
+    color: white;
+    /* background: black; */
+    padding: 5px 10px;
+    border-radius: 5px;
+   
+}
+
+ 
+a:hover {
+  background-color: red;
+ }

@@ -9,6 +9,7 @@ var server_1 = __importDefault(require("./server"));
 require("reflect-metadata");
 data_source_1.AppDataSource.initialize()
     .then(function () {
+    console.log(new Date());
     console.info("DB Connection Estabilished");
     server_1.default.listen(envs_1.PORT, function () { return console.info("server up and running on http://localhost:".concat(envs_1.PORT)); });
 })

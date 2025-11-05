@@ -1,5 +1,6 @@
 import { AppDataSource, userRepository } from "../config/data-source";
 import { ICreateUserDTO } from "../dtos/iCreateUserDTO";
+import { IResponseUserDTO } from "../dtos/IResponseUserDTO";
 import { Credential } from "../entities/Credential";
 import { User } from "../entities/User";
 import { createCredentialsService, validateCredentialsService } from "./CredentialsService";
@@ -32,12 +33,7 @@ export const getUserByIdService = async (id:number): Promise <User> => {
 
 
 
-
-
-
-
-
-export const createUserService = async (createUserDTO: ICreateUserDTO): Promise<User> =>{
+export const createUserService = async (createUserDTO: ICreateUserDTO): Promise<IResponseUserDTO> =>{
    const resultUser: User = await AppDataSource.transaction(async(entityManager)=>{
 	 const newCredentialsId: Credential = await createCredentialsService(
 		entityManager,
@@ -57,7 +53,13 @@ export const createUserService = async (createUserDTO: ICreateUserDTO): Promise<
 		return results;
 	 }); 
 	 
-    return resultUser;
+    return {
+        id: resultUser.id,
+        name: resultUser.name,
+        email: resultUser.email,
+        // resultUser.birthdate YA es string (por tu entidad + DB `date`)
+        birthdate: resultUser.birthdate, // "YYYY-MM-DD"
+  };
 };
 
 export const loginUserService = async (username: string, password: string): Promise<User>=> {

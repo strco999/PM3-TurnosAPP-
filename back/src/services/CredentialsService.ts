@@ -12,7 +12,7 @@ export const createCredentialsService = async (
     password: string
 ): Promise<Credential> => {
     const hashPassword = await bcrypt.hash(password, 10);
-
+   
     const newCredentials: Credential = entityManager.create(Credential, {
         username,
         password:hashPassword,

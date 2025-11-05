@@ -11,7 +11,6 @@ const usersRouter = Router();
 
 // GET /users => Obtener el listado de todos los usuarios.
 usersRouter.get("/", getAllUsers);
-
 // GET /users/:id => Obtener el detalle de un usuario específico.
 usersRouter.get("/:id", getUserById);
 // POST /users/register => Registro de un nuevo usuario.

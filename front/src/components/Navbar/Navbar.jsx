@@ -3,7 +3,7 @@ import styles from "./Navbar.module.css";
 function Navbar () {
 return (
 <header className={styles.header}>
-    <h1> turnos </h1>
+    <h1> Turnos </h1>
         <nav>
             <ul className={styles.navList}>
                 <li>

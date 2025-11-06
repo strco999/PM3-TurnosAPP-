@@ -2,19 +2,22 @@
     display: flex;
     justify-content: space-between; /* espacio entre elemntos  */
     background: rgb(156, 124, 61);
-    padding: 0 30px;
+    padding: 0 70px;
     height: 70px;
     align-items: center;
+    box-shadow: 0 15px 15px black;
+
 }
 
 .header > h1{
     color:white;
+    font-size: 70px;
 }
 
 .navList{
     display: flex; /* mandar al centro la lista */
     list-style: none; /* quitar puntos  */
-   gap: 20px; /* espacio entre elemtnos de la lista */
+    gap: 50px; /* espacio entre elemtnos de la lista */
 }
 
 .navList > li >a {
@@ -22,11 +25,12 @@
     color: white;
     /* background: black; */
     padding: 5px 10px;
-    border-radius: 5px;
-   
+    border-radius: 10px;
+    font-size: 40px;
+      
 }
 
  
 a:hover {
-  background-color: red;
+     background-color: red;
  }

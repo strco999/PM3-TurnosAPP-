@@ -57,7 +57,7 @@ export const createUserService = async (createUserDTO: ICreateUserDTO): Promise<
         id: resultUser.id,
         name: resultUser.name,
         email: resultUser.email,
-        // resultUser.birthdate YA es string (por tu entidad + DB `date`)
+        nDni: resultUser.nDni,
         birthdate: resultUser.birthdate, // "YYYY-MM-DD"
   };
 };

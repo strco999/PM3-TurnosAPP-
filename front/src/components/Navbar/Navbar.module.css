@@ -1,12 +1,10 @@
 .header{
     display: flex;
     justify-content: space-between; /* espacio entre elemntos  */
-    background: rgb(156, 124, 61);
-    padding: 0 70px;
-    height: 70px;
+    padding: 0 100px;
+    height: 200px;
     align-items: center;
     box-shadow: 0 15px 15px black;
-
 }
 
 .header > h1{
@@ -22,15 +20,27 @@
 
 .navList > li >a {
     text-decoration: none; /* quitar subrayado elementos */
-    color: white;
-    /* background: black; */
     padding: 5px 10px;
     border-radius: 10px;
     font-size: 40px;
-      
-}
+      }
 
  
 a:hover {
-     background-color: red;
- }
+     background-color:red;
+     color: black;
+}
+
+a{
+    color: white;
+}
+
+h1:hover {
+     background-color:red;
+     color: black;
+     border-radius: 10px;
+}
+
+h1{
+    color: white;
+}

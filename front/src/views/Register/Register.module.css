@@ -1,0 +1,47 @@
+.registerContainer {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 40px 0;
+}
+
+.registerContainer > h2 {
+font-size: 35px;
+color: •#222222;
+margin-bottom: 20px;
+}
+
+.registerContainer > form {
+padding: 20px;
+border-radius:10px;
+max-width:700px;
+width: 100%;
+box-shadow: 0 15px 15px black;
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+
+.inputGroup{
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.inputGroup > label {
+    color: white;
+    font-weight: 600;
+}
+
+.inputGroup > input {
+    border: 0;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.registerContainer > form > button {
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}

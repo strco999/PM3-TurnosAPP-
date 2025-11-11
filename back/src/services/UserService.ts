@@ -40,13 +40,13 @@ export const createUserService = async (createUserDTO: ICreateUserDTO): Promise<
     createUserDTO.username, 
     createUserDTO.password
 );
-
     const newUser: User = entityManager.create(User, {
 			 name: createUserDTO.name,
        email: createUserDTO.email,
        birthdate: createUserDTO.birthdate,
        nDni: createUserDTO.nDni,
-       credentialsId: newCredentialsId,
+       credentials: { id: newCredentialsId.id } as Credential,
+      
     });
 
 		const results = await entityManager.save(User, newUser);
@@ -62,8 +62,10 @@ export const createUserService = async (createUserDTO: ICreateUserDTO): Promise<
   };
 };
 
-export const loginUserService = async (username: string, password: string): Promise<User>=> {
+export const loginUserService = async (username: string, password: string): Promise<User> => {
    const credentialId = await validateCredentialsService(username, password);
+
+   console.log("[LOGIN] credentialId:", credentialId);
 
 	  const foundUser: User | null = await userRepository.findOne({
 		where:{
@@ -73,6 +75,9 @@ export const loginUserService = async (username: string, password: string): Prom
 		},
 
 });
+
+
+
 
 if (!foundUser){
         throw new Error("Usuario no encontrado");

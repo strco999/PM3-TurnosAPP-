@@ -6,7 +6,7 @@ import "reflect-metadata"
 
 AppDataSource.initialize()
    .then(()=>{
-    console.log(new Date());  
+    
     console.info("DB Connection Estabilished");
     server.listen(PORT, () => console.info(`server up and running on http://localhost:${PORT}`));
 

@@ -50,15 +50,12 @@ export const registerUser = async (req: Request, res: Response) => {
 
 // POST /users/login => Login del usuario a la aplicación.
 export const loginUser = async (req: Request, res: Response) => {
-    try {   
-        const user = await loginUserService(req.body.username, req.body.password);
-        res.status(200).json({
-         login:true, 
-        user,
-    });    
-    } catch (error: any) {
-      res.status(400).json({  
-        message: error.message,
-     });
-    }     
+  try {
+
+    const user = await loginUserService(req.body.username, req.body.password);
+    return res.status(200).json({ login: true, user });
+  } catch (error: any) {
+    console.error("[LOGIN] error:", error?.message);
+    return res.status(400).json({ message: error.message });
+  }
 };

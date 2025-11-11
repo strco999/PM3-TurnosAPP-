@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { validateRegister } from "../../helpers/validateRegister";
 import axios from "axios";
+import styles from "./Register.module.css";
 
 function Register () {
     const initialState = {
@@ -45,39 +46,39 @@ const handleSubmit = async (event) => {
 };
 
     return (
-      <main>
-        <h2>Register</h2>
+      <main className={styles.registerContainer}>
+        <h2>Registro</h2>
          <form onSubmit={handleSubmit} >
-          <div>
+          <div className={styles.inputGroup}>
            <label >Nombre</label>
            <input type="text" name= "name" onChange={handleChange} value= {form.name}/>
 					 {errors.name && <p>{errors.name}</p>}
          </div>
-				   <div>
+				   <div className={styles.inputGroup}>
            <label >Email</label>
            <input type="text" name= "email" onChange={handleChange} value= {form.email}/>
 					 {errors.email && <p>{errors.email}</p>}
 
          </div>
-				   <div>
+				   <div className={styles.inputGroup}>
            <label >Fecha de Nacimiento</label>
            <input type="date" name= "birthdate" onChange={handleChange}  value= {form.birthdate}/>
 					 {errors.birthdate && <p>{errors.birthdate}</p>}
 
          </div>
-				   <div>
+				   <div className={styles.inputGroup}> 
            <label >Numero de documento</label>
            <input type="number" name= "nDni" onChange={handleChange}  value= {form.nDni}/>
 					 {errors.nDni && <p>{errors.nDni}</p>}
 
          </div>
-				   <div>
+				   <div className={styles.inputGroup}>
            <label >Nombre de usuario</label>
            <input type="text" name= "username" onChange={handleChange} value= {form.username}/>
 					 {errors.username && <p>{errors.username}</p>}
 
          </div>
-				   <div>
+				   <div className={styles.inputGroup}>
            <label >Contraseña</label>
            <input type="password" name= "password" onChange={handleChange} value= {form.password}/>
 					 {errors.password && <p>{errors.password}</p>}

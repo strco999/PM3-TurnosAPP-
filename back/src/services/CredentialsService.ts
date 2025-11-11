@@ -37,6 +37,7 @@ export const validateCredentialsService = async (
         username,
         },
     });
+
  
 if (!foundCredentials){
     throw new Error("No existe el user");

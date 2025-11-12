@@ -20,7 +20,7 @@ export const  validateRegister = (formData) => {
     }
 
      if (!formData.nDni) {
-        errors.nDni = "El nombre es Requerido.";
+        errors.nDni = "El Documento es Requerido.";
     }  else if (formData.nDni.length < 7 || formData.nDni.length> 8 ) {
         errors.nDni = "El numero de documento no es valido";
     }

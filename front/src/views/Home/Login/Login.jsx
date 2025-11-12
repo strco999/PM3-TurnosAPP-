@@ -2,8 +2,11 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { validateLogin } from "../../../helpers/validateLogin";
 import axios from "axios";
 import styles from "./Login.module.css";
+import { useNavigate } from "react-router-dom";
 
 function Login () {
+const navigate = useNavigate();
+
 const initialState = {
     username: "",
     password: "",
@@ -12,7 +15,10 @@ const initialState = {
     const handleSubmit = async (values) => {
         try {
           const response = await axios.post("http://localhost:8080/users/login", values);
-          console.log(response.data);
+          localStorage.setItem("user", JSON.stringify(response.data.user));
+          window.dispatchEvent(new Event("userChange"));
+          alert("Ingreso Exitoso");
+          navigate("/");
       } catch (error) {
   console.error(error);
   alert("Ocurrió un error al enviar el formulario");

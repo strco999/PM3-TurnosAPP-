@@ -16,6 +16,7 @@
     display: flex; /* mandar al centro la lista */
     list-style: none; /* quitar puntos  */
     gap: 50px; /* espacio entre elemtnos de la lista */
+    align-items: center;
 }
 
 .navList > li >a {
@@ -51,4 +52,14 @@ h2{
 
 form{
     color: white;
+}
+
+.navList > li > button {
+    color: red;
+    cursor:pointer;
+    text-decoration: none; /* quitar subrayado elementos */
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 40px;
+
 }

@@ -1,5 +1,7 @@
 .appointmentCard{
     text-align: center;
+    flex-direction: column;
+    gap: 10px;
     width: calc(100% - 40px);
     padding: 20px;
     border-radius: 10px;
@@ -7,8 +9,23 @@
 
 }
 
-.appointmentCard > p > span{
+.appointmentCard > p > span {
     font-weight: 600;
+    
+
+}
+
+.appointmentCard > button {
+    color: red;
+    background-color: none;
+    border:0;
+    padding: 8px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.appointmentCard > button:hover {
+    color:blueviolet;
     
 
 }

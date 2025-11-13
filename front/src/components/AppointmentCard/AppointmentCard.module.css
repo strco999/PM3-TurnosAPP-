@@ -16,7 +16,7 @@
 }
 
 .appointmentCard > button {
-    color: red;
+    
     background-color: none;
     border:0;
     padding: 8px 10px;
@@ -25,7 +25,7 @@
 }
 
 .appointmentCard > button:hover {
-    color:blueviolet;
-    
+    background-color: red; /* ligeramente visible */
+  color: black;
 
 }

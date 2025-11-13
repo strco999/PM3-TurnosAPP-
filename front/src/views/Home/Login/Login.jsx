@@ -18,7 +18,7 @@ const initialState = {
           localStorage.setItem("user", JSON.stringify(response.data.user));
           window.dispatchEvent(new Event("userChange"));
           alert("Ingreso Exitoso");
-          navigate("/");
+          navigate("/appointments");
       } catch (error) {
   console.error(error);
   alert("Ocurrió un error al enviar el formulario");

@@ -11,9 +11,6 @@
 html, body, #root { height: 100%; }
 html, body { margin: 0; }
 
-/* PRUEBA: ¿se aplica el CSS? (quítalo luego) */
-body { outline: 2px solid lime; }
-
 /* Fondo global desde public/ */
 body {
   background-image: url('/bg.jpg');      /* front/public/bg.jpg */

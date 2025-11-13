@@ -19,12 +19,13 @@ useEffect(() => {
 const handleLogout = () => {
 	localStorage.removeItem("user");
 	setUser(null);
-	navigate("/");
+	navigate("/login");
 }
 
 return (
 <header className={styles.header}>
-    <h1> Turnos </h1>
+   
+		<Link to="/">Turnos App</Link>
         <nav>
             <ul className={styles.navList}>
                 <li>

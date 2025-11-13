@@ -5,7 +5,7 @@
 - El usuario debe poder registrarse proporcionando un correo y una contraseña.
 - El usuario debe poder autenticarse proporcionado el y la contraseña.
 - El usuario no debe poder registrar un turno sin autenticarse.
-II
+
 2. *Reserva de turnos: *
 - Como usuario autenticado, quiero poder agendar un turno en una fecha y hora espeficas.
 - Criterios de aceptacion:
@@ -23,6 +23,5 @@ mensaje de error.
 - No podra cancelar un turno el mismo dia o posterior a la fecha de reserva.
 - Al cancelar el turno se vera reflejado en el status del mismo.
 5. *Confirmacion de reserva o cancelacion:*
-- Como usuario autenticado, debo recibir un mail avisando sobre la reserva con cancelacion
-de un turno.
+- Como usuario autenticado, debo ver sobre el estado de la reserva de un turno, si activo o cancelado.
 
